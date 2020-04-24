@@ -100,3 +100,16 @@ proc make_Tile*(x, y, w, h: cint; text: cstring = nil): Tile {.importcpp: "new F
 
 proc resize*(self: Tile; X, Y, W, H: cint) {.importcpp: "#.resize(@)", header: flh_tile.}
 proc position*(self: Tile; oldx, oldy, newx, newy: cint) {.importcpp: "#.position(@)", header: flh_tile.}
+
+# ----------------------------------------------------------------------
+
+const
+  flh_help_view = "FL/Fl_Help_View.H"
+type
+  HelpViewObj* {.importc: "Fl_Help_View", header: flh_help_view.} = object of GroupObj
+  HelpView* = ptr HelpViewObj
+
+proc make_Help_View*(x, y, w, h: cint; text: cstring = nil): HelpView {.importcpp: "new Fl_Help_View(@)", header: flh_help_view.}
+proc value*(self: HelpView, text: cstring) {.importcpp: "#.value(@)", header: flh_help_view.}
+# proc resize*(self: Tile; X, Y, W, H: cint) {.importcpp: "#.resize(@)", header: flh_help_view.}
+# proc position*(self: Tile; oldx, oldy, newx, newy: cint) {.importcpp: "#.position(@)", header: flh_help_view.}
