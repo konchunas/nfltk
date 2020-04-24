@@ -92,21 +92,21 @@ type
   Font* {.importc: "Fl_Font*", header: flh.} = distinct pointer
 
 type
-  Label_Draw_F* {.importc: "Fl_Label_Draw_F", header: flh.} = proc(label: Label; x, y, w, h: cint; align: Align)
-  Label_Measure_F* {.importc: "Fl_Label_Measure_F", header: flh.} = proc(label: Label; width, height: var cint)
-  Box_Draw_F* {.importc: "Fl_Box_Draw_F", header: flh.} = proc(x, y, w, h: cint; color: Color)
-  Timeout_Handler* {.importc: "Fl_Timeout_Handler", header: flh.} = proc(data: pointer)
-  Awake_Handler* {.importc: "Fl_Awake_Handler", header: flh.} = proc(data: pointer)
-  Idle_Handler* {.importc: "Fl_Idle_Handler", header: flh.} = proc(data: pointer)
-  Old_Idle_Handler* {.importc: "Fl_Old_Idle_Handler", header: flh.} = proc()
-  FD_Handler* {.importc: "Fl_FD_Handler", header: flh.} = proc(fd: Socket; data: pointer)
-  Event_Handler* {.importc: "Fl_Event_Handler", header: flh.} = proc(event: cint): int
-  System_Handler* {.importc: "Fl_System_Handler", header: flh.} = proc(event, data: pointer): int
-  Abort_Handler* {.importc: "Fl_Abort_Handler", header: flh.} = proc(format: cstring) {.varargs.}
-  Atclose_Handler* {.importc: "Fl_Atclose_Handler", header: flh.} = proc(window: Window, data: pointer)
-  Args_Handler* {.importc: "Fl_Args_Handler", header: flh.} = proc(argc: cint; argv: ptr cstring; i: var cint): int
-  Event_Dispatch* {.importc: "Fl_Event_Dispatch", header: flh.} = proc(event: cint; w: Window): int
-  Clipboard_Notify_Handler* {.importc: "Fl_Clipboard_Notify_Handler", header: flh.} = proc(source: cint; data: pointer)
+  Label_Draw_F* {.importc: "Fl_Label_Draw_F", header: flh.} = proc(label: Label; x, y, w, h: cint; align: Align) {.cdecl.}
+  Label_Measure_F* {.importc: "Fl_Label_Measure_F", header: flh.} = proc(label: Label; width, height: var cint) {.cdecl.}
+  Box_Draw_F* {.importc: "Fl_Box_Draw_F", header: flh.} = proc(x, y, w, h: cint; color: Color) {.cdecl.}
+  Timeout_Handler* {.importc: "Fl_Timeout_Handler", header: flh.} = proc(data: pointer) {.cdecl.}
+  Awake_Handler* {.importc: "Fl_Awake_Handler", header: flh.} = proc(data: pointer) {.cdecl.}
+  Idle_Handler* {.importc: "Fl_Idle_Handler", header: flh.} = proc(data: pointer) {.cdecl.}
+  Old_Idle_Handler* {.importc: "Fl_Old_Idle_Handler", header: flh.} = proc() {.cdecl.}
+  FD_Handler* {.importc: "Fl_FD_Handler", header: flh.} = proc(fd: Socket; data: pointer) {.cdecl.}
+  Event_Handler* {.importc: "Fl_Event_Handler", header: flh.} = proc(event: cint): int {.cdecl.}
+  System_Handler* {.importc: "Fl_System_Handler", header: flh.} = proc(event, data: pointer): int {.cdecl.}
+  Abort_Handler* {.importc: "Fl_Abort_Handler", header: flh.} = proc(format: cstring) {.varargs, cdecl.}
+  Atclose_Handler* {.importc: "Fl_Atclose_Handler", header: flh.} = proc(window: Window, data: pointer) {.cdecl.}
+  Args_Handler* {.importc: "Fl_Args_Handler", header: flh.} = proc(argc: cint; argv: ptr cstring; i: var cint): int {.cdecl.}
+  Event_Dispatch* {.importc: "Fl_Event_Dispatch", header: flh.} = proc(event: cint; w: Window): int {.cdecl.}
+  Clipboard_Notify_Handler* {.importc: "Fl_Clipboard_Notify_Handler", header: flh.} = proc(source: cint; data: pointer) {.cdecl.}
 
 type
   # kept the prefix here because the enum belongs solely to the Fl
