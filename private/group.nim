@@ -1,5 +1,7 @@
 
 import widget
+import enumerations
+
 
 const
   flh = "FL/Fl_Group.H"
@@ -111,5 +113,7 @@ type
 
 proc make_Help_View*(x, y, w, h: cint; text: cstring = nil): HelpView {.importcpp: "new Fl_Help_View(@)", header: flh_help_view.}
 proc value*(self: HelpView, text: cstring) {.importcpp: "#.value(@)", header: flh_help_view.}
-# proc resize*(self: Tile; X, Y, W, H: cint) {.importcpp: "#.resize(@)", header: flh_help_view.}
-# proc position*(self: Tile; oldx, oldy, newx, newy: cint) {.importcpp: "#.position(@)", header: flh_help_view.}
+proc textfont*(self: HelpView): Font {.importcpp: "#.textfont(@)", header: flh_help_view.}
+proc `textfont=`*(self: HelpView; font: Font) {.importcpp: "#.textfont(@)", header: flh_help_view.}
+proc textsize*(self: HelpView): Fontsize {.importcpp: "#.textsize(@)", header: flh_help_view.}
+proc `textsize=`*(self: HelpView; newSize: Fontsize) {.importcpp: "#.textsize(@)", header: flh_help_view.}

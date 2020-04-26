@@ -11,7 +11,7 @@ const
   flh_text_buffer = "FL/Fl_Text_Buffer.H"
 
 type
-  TextModifyCb* = proc(pos, nInserted, nDeleted, nRestyled: cint; deletedText: cstring; cbArg: pointer)
+  TextModifyCb* {.importc: "Fl_Text_Modify_Cb", header: flh_text_buffer.} = proc(pos, nInserted, nDeleted, nRestyled: cint; deletedText: cstring; cbArg: pointer) {.cdecl.}
   TextPredeleteCb* = proc(pos, nDeleted: cint; cbArg: pointer)
 
   TextSelectionObj* {.importc: "Fl_Text_Selection", header: flh_text_buffer.} = object

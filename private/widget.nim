@@ -28,9 +28,9 @@ type
   WidgetObj* {.importc: "Fl_Widget", header: flh, inheritable.} = object
   Widget* = ptr WidgetObj
 
-  Callback*  = proc(w: Widget; user: pointer)
-  Callback0* = proc(w: Widget)
-  Callback1* = proc(w: Widget; a: clong)
+  Callback*  = proc(w: Widget; user: pointer) {.cdecl.}
+  Callback0* = proc(w: Widget) {.cdecl.}
+  Callback1* = proc(w: Widget; a: clong) {.cdecl.}
 
 proc free*(self: Widget) {.importcpp: "delete @", header: flh.}
 
